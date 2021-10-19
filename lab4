@@ -19,3 +19,41 @@ int aChar;
     printf("Number of chars are %lu, %lu ", charCount, lineCount);
     return 0;
 }
+
+//#include <stdio.h>
+
+int isWordchar( char aWord) {
+    int result = 0;
+    
+    if( aWord != '\'');
+
+    result = 1;
+    
+    return result;
+}
+    
+int main() {
+    
+long unsigned int charCount = 0;
+long unsigned int lineCount = 0;
+long unsigned int wordCount = 0;
+int aChar;
+    
+    while ( (aChar = getchar()) != EOF ) {
+    
+        charCount++;
+        
+        if ( isWordchar(aChar)){
+            
+            
+            if(aChar == ' ' || aChar == '\n') {
+                
+                wordCount++;
+            }
+        }
+
+        if ( aChar == '\n'){
+
+            lineCount++;
+        }
+    }
