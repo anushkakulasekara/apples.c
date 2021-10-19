@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    unsigned long int charCount = 0;
+    char aChar = 0;
+
+    if (aChar >= 'A' && aChar <= 'Z'){
+        
+        charCount++;
+    }
+    
+    if (aChar >= 'a' && aChar <= 'z'){
+        
+        charCount++;
+    }
+    
+
+    
+printf( "%lu \n", charCount);
+
+
+    return 0;
+}
