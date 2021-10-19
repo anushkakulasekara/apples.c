@@ -1,3 +1,15 @@
+/*
+ * Filename: counting.c
+ *
+ * Description: counts the number of characters, words and lines in a text file
+ *
+ * Author: Anushka Kulasekara
+ * Date: October 19, 2021
+ */
+
+
+
+
 #include <stdio.h>
 
 int isWordchar( char aWord) {
@@ -53,7 +65,7 @@ int aChar;
         }
     }
 
-    printf("Number of chars are %lu, %lu, %lu ", charCount, lineCount, wordCount);
+    printf( "%lu %lu %lu\n", charCount, wordCount, lineCount );
     
     return 0;
 
