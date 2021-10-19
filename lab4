@@ -1,34 +1,24 @@
 #include <stdio.h>
-    
-int main() {
-    
-long unsigned int charCount = 0;
-long unsigned int lineCount = 0;
-int aChar;
-    
-    while ( (aChar = getchar()) != EOF ) {
-    
-        charCount++;
-
-        if ( aChar == '\n'){
-
-            lineCount++;
-        }
-    }
-    
-    printf("Number of chars are %lu, %lu ", charCount, lineCount);
-    return 0;
-}
-
-//#include <stdio.h>
 
 int isWordchar( char aWord) {
     int result = 0;
     
-    if( aWord != '\'');
+    if( aWord != '\'' ){
 
     result = 1;
-    
+    }
+    if (aWord >= 'A' && aWord <= 'Z'){
+
+    result =1;
+    }
+
+
+    if (aWord >= 'a' && aWord <= 'z'){
+
+    result =1;
+    }
+
+
     return result;
 }
     
@@ -50,6 +40,11 @@ int aChar;
                 
                 wordCount++;
             }
+
+            if(aChar == '\n' && aChar == ' '){
+
+                wordCount--;
+            }
         }
 
         if ( aChar == '\n'){
@@ -57,3 +52,9 @@ int aChar;
             lineCount++;
         }
     }
+
+    printf("Number of chars are %lu, %lu, %lu ", charCount, lineCount, wordCount);
+    
+    return 0;
+
+}
