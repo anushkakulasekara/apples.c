@@ -1,24 +1,8 @@
 #include <stdio.h>
-
-int main()
-{
-    unsigned long int charCount = 0;
-    char aChar = 0;
-
-    if (aChar >= 'A' && aChar <= 'Z'){
-        
-        charCount++;
-    }
-    
-    if (aChar >= 'a' && aChar <= 'z'){
-        
-        charCount++;
-    }
-    
-
-    
-printf( "%lu \n", charCount);
-
-
+int main() {
+    int char_count = 0;
+    while (getchar() != EOF)
+        ++char_count;
+    printf("Number of chars are %ld ", char_count);
     return 0;
 }
