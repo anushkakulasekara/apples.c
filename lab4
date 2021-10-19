@@ -1,8 +1,14 @@
 #include <stdio.h>
+    
 int main() {
-    int char_count = 0;
-    while (getchar() != EOF)
-        ++char_count;
-    printf("Number of chars are %ld ", char_count);
+    
+long unsigned int charCount = 0;
+    
+    while ( getchar() != EOF ) {
+    
+        ++charCount;
+    }
+    
+    printf("Number of chars are %lu ", charCount);
     return 0;
 }
