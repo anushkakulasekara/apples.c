@@ -3,12 +3,19 @@
 int main() {
     
 long unsigned int charCount = 0;
+long unsigned int lineCount = 0;
+int aChar;
     
-    while ( getchar() != EOF ) {
+    while ( (aChar = getchar()) != EOF ) {
     
-        ++charCount;
+        charCount++;
+
+        if ( aChar == '\n'){
+
+            lineCount++;
+        }
     }
     
-    printf("Number of chars are %lu ", charCount);
+    printf("Number of chars are %lu, %lu ", charCount, lineCount);
     return 0;
 }
