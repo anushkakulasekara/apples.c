@@ -9,23 +9,15 @@
 
 
 
-
 #include <stdio.h>
 
-int isWordchar( char aWord) {
+//function for word count
+
+int isWordchar( char aletterWord) {
     int result = 0;
     
-    if( aWord != '\'' ){
-
-    result = 1;
-    }
-    if (aWord >= 'A' && aWord <= 'Z'){
-
-    result =1;
-    }
-
-
-    if (aWord >= 'a' && aWord <= 'z'){
+    //defining a letter using the ASCII table values
+    if(( aletterWord == 39 ) || (aletterWord >= 65 && aletterWord <= 90) || (aletterWord >= 97 && aletterWord <= 122)){
 
     result =1;
     }
@@ -36,42 +28,55 @@ int isWordchar( char aWord) {
     
 int main() {
     
-long unsigned int charCount = 0;
-long unsigned int lineCount = 0;
-long unsigned int wordCount = 0;
-int aChar;
+//local variables
+unsigned long int charCount = 0;
+unsigned long int lineCount = 0;
+unsigned long int wordCount = 0;
+char aChar = 1;
+int aWord = 1;
     
+    //character count
     while ( (aChar = getchar()) != EOF ) {
     
-        charCount++;
-        
-        if ( isWordchar(aChar)){
-            
-            
-            if(aChar == ' ' || aChar == '\n') {
-                
-                wordCount++;
-            }
-
-            if(aChar == '\n' && aChar == ' '){
-
-                wordCount--;
-            }
-        }
-
-        if ( aChar == '\n'){
+    charCount++;
+    
+         //line count using new line
+        if ( aChar == '\0' || aChar == '\n'){
 
             lineCount++;
+
+            aWord = 1;
+            
         }
+
+           
+            //calling our function to dertermine if a character is a letter
+            else if( (isWordchar(aChar) == 1)){
+             // function == 1 meaning that its starting to read a word   
+                  
+                if(aWord == 1){
+                        
+                    wordCount++;
+                    aWord = 0;
+                //ended reading a word, no more letters
+                }
+            }
+                    //anything other than the parameters above, means a new word
+                    else {
+
+                        aWord = 1;
+                    }
+
+
+
     }
 
+    //printing
     printf( "%lu %lu %lu\n", charCount, wordCount, lineCount );
     
     return 0;
 
 }
-
-
 
 ////////////////////////////////////////////////////////////////////
 ///*
