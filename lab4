@@ -17,7 +17,7 @@ int isWordchar( char aletterWord) {
     int result = 0;
     
     //defining a letter using the ASCII table values
-    if(( aletterWord == 39 ) || (aletterWord >= 65 && aletterWord <= 90) || (aletterWord >= 97 && aletterWord <= 122)){
+   if(( aletterWord == '\'' ) || (aletterWord >= 'A' && aletterWord <= 'Z') || (aletterWord >= 'a' && aletterWord <= 'z')){
 
     result =1;
     }
