@@ -84,14 +84,14 @@ int aChar;
  */
 
 
+
 #include <stdio.h>
 
-int isWordchar( char aLetter) {
+//
+int isWordchar( char aletterWord) {
     int result = 0;
     
-    if (( aLetter != '\'' ) && (aLetter >= 'A' && aLetter <= 'Z') || (aLetter >= 'a' && aLetter <= 'z')) {
-
-
+    if(( aletterWord == 39 ) || (aletterWord >= 65 && aletterWord <= 90) || (aletterWord >= 97 && aletterWord <= 122)){
 
     result =1;
     }
@@ -105,36 +105,45 @@ int main() {
 long unsigned int charCount = 0;
 long unsigned int lineCount = 0;
 long unsigned int wordCount = 0;
-int aChar;
-int aWord;
+char aChar = 1;
+int aWord = 1;
     
     while ( (aChar = getchar()) != EOF ) {
     
         charCount++;
     
-            
-            
-            if(aChar == '\0' || aChar == '\n') {
-                
-                aWord = 1;
-                
-                if ( isWordchar(aChar)){
-                    
-                    if(aWord == 1){
+         
+         if ( aChar == '\0' || aChar == '\n'){
+
+            lineCount++;
+
+            aWord = 1;
+        }
+
+           
+    
+                     else if( (isWordchar(aChar) ==1)){
+                     
+                     if(aWord ==1){
                         
                         wordCount++;
                         aWord = 0;
                     }
-                
-            }
+                     }
+
+                    else{
+
+                        aWord = 1;
+                    }
 
 
-        }
+                    
+            
 
-        if ( aChar == '\n'){
+        
+        
 
-            lineCount++;
-        }
+
     }
 
     printf( "%lu %lu %lu\n", charCount, wordCount, lineCount );
@@ -142,4 +151,3 @@ int aWord;
     return 0;
 
 }
-
