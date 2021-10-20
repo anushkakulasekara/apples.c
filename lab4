@@ -70,3 +70,73 @@ int aChar;
     return 0;
 
 }
+
+
+
+////////////////////////////////////////////////////////////////////
+///*
+ * Filename: counting.c
+ *
+ * Description: counts the number of characters, words and lines in a text file
+ *
+ * Author: Anushka Kulasekara
+ * Date: October 19, 2021
+ */
+
+
+
+
+#include <stdio.h>
+
+int isWordchar( char aWord) {
+    int result = 0;
+    
+    if( aWord != '\'' || aWord >= 'A' && aWord <= 'Z' || aWord >= 'a' && aWord <= 'z' ){
+
+    result =1;
+    
+}
+
+    return result;
+}
+    
+int main() {
+    
+long unsigned int charCount = 0;
+long unsigned int lineCount = 0;
+long unsigned int wordCount = 0;
+int aChar;
+int prevChar = 0;
+int currentChar = 1;
+    
+    while ( (aChar = getchar()) != EOF ) {
+    
+        charCount++;
+        
+        if ( isWordchar(aChar)){
+            
+            
+            if(prevChar == aChar && currentChar != aChar) {
+                
+                if(prevChar == aChar && currentChar == aChar){
+                
+                    if(prevChar != aChar && currentChar == aChar){
+                    
+                    wordCount++;
+                }
+            }
+}
+
+        }
+
+        if ( aChar == '\n'){
+
+            lineCount++;
+        }
+    }
+
+    printf( "%lu %lu %lu\n", charCount, wordCount, lineCount );
+    
+    return 0;
+
+}
